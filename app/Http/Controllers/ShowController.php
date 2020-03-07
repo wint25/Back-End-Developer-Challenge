@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Shows;
+
 class ShowController extends Controller
 {
     /**
@@ -39,14 +41,15 @@ class ShowController extends Controller
     public function store(Request $request)
     {
         //
-		 \App\Shows::create([
+		 $tvshow = new Shows([
           'season' => $request->get('season'),
           'episode' => $request->get('episode'),
           'quote' => $request->get('quote'),
-          'user_id' => $request->get('user_id'),
+          'user_id' => $request->user()->id,
         ]);
-
-        return redirect('/tvshows');
+		$tvshow->save();
+		
+		return view('welcome');
     }
 
     /**
@@ -69,10 +72,9 @@ class ShowController extends Controller
      */
     public function edit($id)
     {
+		return view('updateshow', ['show' => Shows::findOrFail($id)]);
         //
-		$tvshow = Shows::find($id);
-		
-		return('tvshow', $tvshow);
+	
     }
 
     /**
@@ -85,27 +87,14 @@ class ShowController extends Controller
     public function update(Request $request, $id)
     {
         //
-		$values = array(
-		    'season' => 'required|numeric',
-			'episode' => 'required|numeric',
-			'quote' => 'required'
-			);
-			
-			$validate = Validator::make(Input::all(), $values);
-			
-			if($validate->fails()){
-				return Redirect::to('tvshows/' . $id . '/edit')
-					->withErrors($validate)
-					->withInput(Input::except('password'));
-			}else{
+	
 				$tvshow = Shows::find($id);
-				$tvshow->season = Input::get('season');
-				$tvshow->episode = Input::get('episode');
-				$tvshow->quote = Input::get('quote');
-				$tvshow->save();
-				
-				Session::flash('message', 'Successfully update of Tv Show');
-				return Redirect::to('tvshows');
+				$tvshow->season = $request->get('season');
+                $tvshow->episode = $request->get('episode');
+                $tvshow->quote = $request->get('quote');
+		        $tvshow->save();
+				return view('welcome');
+          
     }
 
     /**
@@ -119,8 +108,7 @@ class ShowController extends Controller
         //
 		$tvshow = Shows::find($id);
 		$tvshow->delete();
-		
-		Session::flash('message', 'Successful Delete');
-		return Redirect::to('tvshows');
+		return view('welcome');
+	
     }
 }

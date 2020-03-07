@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+    <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
+      <title>Edit Quote</title>
+       <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+ <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -64,34 +59,28 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+	<div class="flex-center position-ref full-height">
+<h1>Edit Tv Show Quote</h1>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+ <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    TV Shows
-                </div>
-
-        <div class="links">
-		{{-- {{ config('app.url')}} --}}
-          <a href="http://127.0.0.1:8181/tvshows/create">Add Quote</a>
-          <a href="http://127.0.0.1:8181/tvshows">View Shows</a>
-		  <a href="{{ config('app.url')}}:8181/tvshows/update">Edit Show</a>
-		  <a href="{{ config('app.url')}}:8181/tvshows/destroy">Delete Show</a>
-        </div>
-            </div>
-        </div>
-    </body>
-</html>
+			
+                <form method="POST" action="{{ route('tvshows.update' , $show->id) }}">
+                    @csrf
+					@method('PATCH');
+                    <div class="form-input">
+                        <label>Season</label> <input type="number" name="season" value="{{$show->season}}">
+                    </div>
+					<div class="form-input">
+                        <label>Episode</label> <input type="number" name="episode" value="{{$show->episode}}">
+                    </div>
+					<div class="form-input">
+                        <label>Quote</label> <input type="text" name="quote" value="{{$show->quote}}">
+                    </div>
+					 <button type="submit">Submit</button>
+				</form>
+			 </div>
+ </div>
+ </div>
+   </body>
+    </html>
