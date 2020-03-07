@@ -30,6 +30,13 @@
                                 <td class="inner-table">{{ $tvshow->quote }}</td>
 									
 								
+								<td class="inner-table"> 
+										<form method="POST" action="{{ route('tvshows.destroy' , $tvshow->id)}}">
+										@csrf
+										@method('DELETE')
+												<button class="btn btn-primary" type="submit">Delete</button>
+										</form>
+								</td>
                             </tr>
                         @endforeach
                     </tbody>

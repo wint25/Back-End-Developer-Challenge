@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Shows;
+use Session;
 
 class ShowController extends Controller
 {
@@ -48,7 +49,7 @@ class ShowController extends Controller
           'user_id' => $request->user()->id,
         ]);
 		$tvshow->save();
-		
+		Session::flash('flash_message', 'Quote successfully added!');
 		return view('welcome');
     }
 
@@ -93,6 +94,7 @@ class ShowController extends Controller
                 $tvshow->episode = $request->get('episode');
                 $tvshow->quote = $request->get('quote');
 		        $tvshow->save();
+				Session::flash('flash_message', 'Quote successfully updated!');
 				return view('welcome');
           
     }
@@ -108,7 +110,23 @@ class ShowController extends Controller
         //
 		$tvshow = Shows::find($id);
 		$tvshow->delete();
+		Session::flash('flash_message', 'Quote successfully deleted!');
 		return view('welcome');
 	
     }
+	
+	public function editlist(){
+		
+		$tvshows = \App\Shows::all();
+
+        return view('editshow', ['allTvshows' => $tvshows]);
+		
+	}
+	
+	public function deletelist(){
+		
+		$tvshows = \App\Shows::all();
+
+        return view('deleteshow', ['allTvshows' => $tvshows]);
+	}
 }

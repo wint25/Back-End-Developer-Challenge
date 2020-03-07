@@ -29,7 +29,8 @@
                                 <td class="inner-table">{{ $tvshow->episode }}</td>
                                 <td class="inner-table">{{ $tvshow->quote }}</td>
 									
-								
+								<td class="inner-table"> <a href="{{ url('/tvshows/' . $tvshow->id . '/edit') }}" class="btn btn-primary">Edit</a>	</td>
+							
                             </tr>
                         @endforeach
                     </tbody>
