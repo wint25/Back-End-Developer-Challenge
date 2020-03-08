@@ -24,3 +24,4 @@ Route::get('/welcome', 'HomeController@second')->name('welcome');
 Route::get('tvshows/editlist', 'ShowController@editlist');
 Route::get('tvshows/deletelist', 'ShowController@deletelist');
 Route::resource('/tvshows', 'ShowController');
+Route::resource('/copi', 'ApCopiController');

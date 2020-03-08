@@ -23,6 +23,6 @@ class ApState extends Model
 			];
 			
 	public function copi(){
-		return $this->hasMany('App\ApCopi');
+		return $this->hasMany('App\ApCopi', 'state_id');
 	}
 }

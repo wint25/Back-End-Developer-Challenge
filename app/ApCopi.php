@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ApCopi extends Model
 {
     //
+	protected $table = 'ap_copi';
 	protected $fillable = [
 				  'id',
 				  'state_id',
