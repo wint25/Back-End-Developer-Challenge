@@ -15,7 +15,7 @@
                         </div>
                     @endif
 <div class="content">
-			<table>
+			<table border="1">
                     <thead>
                         <td>Season</td>
                         <td>Episode</td>

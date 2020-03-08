@@ -15,13 +15,15 @@
                         </div>
                     @endif
 <div class="content">
-			<table>
+			<table border="1">
                     <thead>
                         <td>Season</td>
                         <td>Episode</td>
                         <td>Quote</td>
+						<td>Image</td>
                     </thead>
                     <tbody>
+					@php ($value =0)
                         @foreach ($allTvshows as $tvshow)
                             <tr>
                                 
@@ -29,8 +31,9 @@
                                 <td class="inner-table">{{ $tvshow->episode }}</td>
                                 <td class="inner-table">{{ $tvshow->quote }}</td>
 									
-								
+								<td class="inner-table"> <img src="{{ url('https://picsum.photos/200/30' . $value) }}"></td>
                             </tr>
+							@php ($value++)
                         @endforeach
                     </tbody>
                 </table>

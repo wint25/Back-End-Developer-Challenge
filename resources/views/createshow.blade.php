@@ -20,13 +20,13 @@
                 <form method="POST" action="<?php echo action('ShowController@store'); ?>">
                     @csrf
                     <div class="form-input">
-                        <label>Season</label> <input type="number" name="season">
+                        <label>Season</label> <input required type="number" name="season">
                     </div>
 					<div class="form-input">
-                        <label>Episode</label> <input type="number" name="episode">
+                        <label>Episode</label> <input required type="number" name="episode">
                     </div>
 					<div class="form-input">
-                        <label>Quote</label> <input type="text" name="quote">
+                        <label>Quote</label> <input required type="text" name="quote">
                     </div>
 					 <button type="submit">Submit</button>
 				</form>

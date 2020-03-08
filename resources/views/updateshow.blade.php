@@ -21,13 +21,13 @@
                     @csrf
 					@method('PATCH')
                     <div class="form-input">
-                        <label>Season</label> <input type="number" name="season" value="{{$show->season}}">
+                        <label>Season</label> <input required type="number" name="season" value="{{$show->season}}">
                     </div>
 					<div class="form-input">
-                        <label>Episode</label> <input type="number" name="episode" value="{{$show->episode}}">
+                        <label>Episode</label> <input required type="number" name="episode" value="{{$show->episode}}">
                     </div>
 					<div class="form-input">
-                        <label>Quote</label> <input type="text" name="quote" value="{{$show->quote}}">
+                        <label>Quote</label> <input required type="text" name="quote" value="{{$show->quote}}">
                     </div>
 					 <button type="submit">Submit</button>
 				</form>
