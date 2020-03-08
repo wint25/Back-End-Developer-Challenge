@@ -79,4 +79,8 @@ class ApCopi extends Model
 				  'created_at',
 				  'updated_at'
 				  ];
+				  
+				  public function state(){
+					  return $this->belongsTo(ApState::class);
+				  }
 }
