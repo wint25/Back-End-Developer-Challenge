@@ -81,6 +81,6 @@ class ApCopi extends Model
 				  ];
 				  
 				  public function state(){
-					  return $this->belongsTo(ApState::class);
+					  return $this->belongsTo('App\ApState');
 				  }
 }
