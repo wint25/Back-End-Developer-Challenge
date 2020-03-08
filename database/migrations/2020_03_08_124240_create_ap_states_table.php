@@ -30,7 +30,10 @@ class CreateApStatesTable extends Migration
 			$table->index('country');
 			$table->index('state');
 			$table->index('code');
+			
+			
         });
+		DB::unprepared(File::get(base_path() . '/database/seeds/ap_states.sql'));
     }
 
     /**

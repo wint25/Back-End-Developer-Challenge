@@ -21,4 +21,8 @@ class ApState extends Model
 			'created_at',
 			'updated_at'
 			];
+			
+	public function copi(){
+		return $this->hasMany(ApCopi::class);
+	}
 }
