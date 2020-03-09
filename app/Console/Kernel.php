@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        //command to display Avg food prices per State on Console
 		Commands\displayCommand::class,
     ];
 

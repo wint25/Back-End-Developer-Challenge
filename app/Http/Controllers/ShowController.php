@@ -16,7 +16,7 @@ class ShowController extends Controller
      */
     public function index()
     {
-        //
+        //Show all quotes
 		 $tvshows = \App\Shows::all();
 
         return view('viewshows', ['allTvshows' => $tvshows]);
@@ -29,7 +29,7 @@ class ShowController extends Controller
      */
     public function create()
     {
-        //
+        //navigate to create quotes
 		return view('createshow');
     }
 
@@ -41,7 +41,7 @@ class ShowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //store new quotes in database
 		 $tvshow = new Shows([
           'season' => $request->get('season'),
           'episode' => $request->get('episode'),
@@ -61,7 +61,7 @@ class ShowController extends Controller
      */
     public function show($id)
     {
-        //
+        //show a specific quote
 		 return view('displayshow', ['shows' => Shows::findOrFail($id)]);
     }
 
@@ -72,9 +72,9 @@ class ShowController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   //display quotes in database to edit
 		return view('updateshow', ['show' => Shows::findOrFail($id)]);
-        //
+        
 	
     }
 
@@ -87,8 +87,8 @@ class ShowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-	
+        
+				// update a particular quote in the database
 				$tvshow = Shows::find($id);
 				$tvshow->season = $request->get('season');
                 $tvshow->episode = $request->get('episode');
@@ -107,7 +107,7 @@ class ShowController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Delete a particular quote from the database
 		$tvshow = Shows::find($id);
 		$tvshow->delete();
 		Session::flash('flash_message', 'Quote successfully deleted!');
@@ -116,7 +116,7 @@ class ShowController extends Controller
     }
 	
 	public function editlist(){
-		
+		//display a list of quotes
 		$tvshows = \App\Shows::all();
 
         return view('editshow', ['allTvshows' => $tvshows]);
@@ -124,7 +124,7 @@ class ShowController extends Controller
 	}
 	
 	public function deletelist(){
-		
+		//display a list of quotes to delete
 		$tvshows = \App\Shows::all();
 
         return view('deleteshow', ['allTvshows' => $tvshows]);

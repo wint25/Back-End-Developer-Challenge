@@ -20,7 +20,7 @@ class displayCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Displays string on one line of console';
+    protected $description = 'Displays Avg food prices per State on one line of the console';
 
     /**
      * Create a new command instance.

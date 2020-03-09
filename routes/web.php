@@ -18,10 +18,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//navigate to home
 Route::get('/home', 'HomeController@index')->name('home');
+//navigate to welcome
 Route::get('/welcome', 'HomeController@second')->name('welcome');
+//naviagate to edit list of quotes
 Route::get('tvshows/editlist', 'ShowController@editlist');
+//navigate to delete list of quotes
 Route::get('tvshows/deletelist', 'ShowController@deletelist');
+//access controller for tv show quotes
 Route::resource('/tvshows', 'ShowController');
+//ap_copi table testing controller
 Route::resource('/copi', 'ApCopiController');

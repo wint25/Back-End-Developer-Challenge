@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApCopi extends Model
 {
-    //
+    // Table name 
 	protected $table = 'ap_copi';
+	//Fillable table data
 	protected $fillable = [
 				  'id',
 				  'state_id',
@@ -81,6 +82,7 @@ class ApCopi extends Model
 				  'updated_at'
 				  ];
 				  
+				  //One to Many Relationship with ApState
 				  public function state(){
 					  return $this->belongsTo('App\ApState');
 				  }

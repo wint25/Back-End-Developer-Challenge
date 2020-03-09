@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApState extends Model
 {
-    //
+    //Fillable table data
 	protected $fillable = [
 			'id',
 			'country',
@@ -21,7 +21,7 @@ class ApState extends Model
 			'created_at',
 			'updated_at'
 			];
-			
+	//One to Many Relationship with ApCopi		
 	public function copi(){
 		return $this->hasMany('App\ApCopi', 'state_id');
 	}
