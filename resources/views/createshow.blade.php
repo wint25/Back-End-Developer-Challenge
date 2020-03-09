@@ -19,16 +19,18 @@
 			
                 <form method="POST" action="<?php echo action('ShowController@store'); ?>">
                     @csrf
-                    <div class="form-input">
-                        <label>Season</label> <input required type="number" name="season">
+                    <div class="form-input form-group row">
+                        <label class="col-form-label col-md-3 text-md-right">Season</label> <input class="col-md-1" required type="number" name="season">
                     </div>
-					<div class="form-input">
-                        <label>Episode</label> <input required type="number" name="episode">
+					<div class="form-input form-group row">
+                        <label class="col-form-label col-md-3 text-md-right">Episode</label> <input class="col-md-1" required type="number" name="episode">
                     </div>
-					<div class="form-input">
-                        <label>Quote</label> <input required type="text" name="quote">
+					<div class="form-input form-group row">
+                        <label class="col-form-label col-md-3 text-md-right">Quote</label> <input class="col-md-6" required type="text" name="quote">
                     </div>
-					 <button type="submit">Submit</button>
+					<div class="offset-md-8">
+					 <button class="btn btn-primary "type="submit">Submit</button>
+					 </div>
 				</form>
 			 </div>
 			 </div>
