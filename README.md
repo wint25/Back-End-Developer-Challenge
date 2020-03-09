@@ -7,12 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-#If Cloning this Repository
+###If Cloning this Repository 
 
-Create Database
-Update .env file with database credentials
-update composer and install npm
-Also, this project needs generation key: php artisan key:generate
+Create a Database.
+
+Update .env file with database credentials.
+
+update composer and install npm.
+
+Also, this project needs generation key: php artisan key:generate.
 
 
 # Back End Developer Challenge 2020 #
