@@ -30,10 +30,10 @@
 				<p></p>
 				@else
 				
-				   <a  class="navbar-brand" href="{{ config('app.url')}}:8181/tvshows/create">Add Quote</a>
-                   <a  class="navbar-brand" href="{{ config('app.url')}}:8181/tvshows">View Quotes</a>
-		           <a  class="navbar-brand" href="{{ config('app.url')}}:8181/tvshows/editlist">Edit Quotes</a>
-		           <a  class="navbar-brand" href="{{ config('app.url')}}:8181/tvshows/deletelist">Delete Quotes</a>
+				   <a  class="navbar-brand" href="{{ config('app.url')}}/tvshows/create">Add Quote</a>
+                   <a  class="navbar-brand" href="{{ config('app.url')}}/tvshows">View Quotes</a>
+		           <a  class="navbar-brand" href="{{ config('app.url')}}/tvshows/editlist">Edit Quotes</a>
+		           <a  class="navbar-brand" href="{{ config('app.url')}}/tvshows/deletelist">Delete Quotes</a>
 		        @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
